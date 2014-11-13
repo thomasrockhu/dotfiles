@@ -7,12 +7,6 @@ ZSH=.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="blinks"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias tmux='tmux -2 -u'
-alias ack='ack-grep'
-
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -61,11 +55,7 @@ export PROMPT=" %{$terminfo[bold]$fg[green]%}%n$fg[white]@$fg[white]%m%{$reset_c
 PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
 
-export DJANGO_SETTINGS_MODULE=beautifulmind.settings
-export PYTHONPATH=~/src
 export EDITOR=vim VISUAL=vim
-export PATH=/opt/bin:$PATH
-#export TERM=rxvt-unicode
 
 alias :q='echo "Silly, this is not vim"'
 alias :wq='echo "Silly, this is not vim"'
@@ -74,14 +64,11 @@ alias gs="git status"
 alias gb="git branch"
 alias gc="git checkout"
 alias gd="git diff"
-alias cdr="cd ~/src/beautifulmind"
 
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias dshell="/home/mazi/src/beautifulmind/manage.py shell_plus"
-alias dstart="cd /home/mazi/src/beautifulmind/; ./run.sh"
 alias ag="ack-grep"
 alias tmux="tmux -2 -u"
 alias vi="vim"

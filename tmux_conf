@@ -1,4 +1,4 @@
-# Move prefix to...
+# Change prefix from Ctrl-B to Ctrl-X
 unbind-key C-b
 set-option -g prefix C-x
 
@@ -12,6 +12,7 @@ bind-key | split-window -h
 bind-key _ split-window -v
 
 # Resize and navigate splits
+# Allow Vim-style navigation
 unbind-key H
 unbind-key L
 unbind-key J
@@ -30,6 +31,7 @@ bind-key l select-pane -R
 bind-key j select-pane -D
 bind-key k select-pane -U
 
+# Don't timeout on escape time
 set-option -sg escape-time 0
 
 # show window activity
@@ -43,10 +45,7 @@ set -g visual-activity on
 # Trick the term to think we are actually an working 256 color screen
 set -g default-terminal "rxvt-unicode"
 
-#### RELOAD CONFIG
-
-bind r source-file ~/.tmux.conf \; display-message "Config reloaded..."
-
+# Set some colors
 set -g status-bg colour11
 set -g status-fg colour255
 set -g pane-active-border-bg colour0
@@ -57,3 +56,6 @@ set -g window-status-format '#I'
 set -g window-status-current-format '#I #W'
 set -g status-left ''
 set -g status-right "#(~/.tmux.date.conf day) #(~/.tmux.date.conf full)"
+
+#### RELOAD CONFIG
+bind r source-file ~/.tmux.conf \; display-message "Config reloaded..."
