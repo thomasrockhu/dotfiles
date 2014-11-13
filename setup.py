@@ -8,6 +8,7 @@ from os.path import dirname
 from os.path import expanduser
 from os.path import exists
 from os.path import join
+from re import search
 from subprocess import call
 
 VERSION = "1.0.0"
@@ -15,6 +16,7 @@ VERSION = "1.0.0"
 HOME_DIR = expanduser("~")
 DOTFILE_DIR = join(HOME_DIR, "dotfiles")
 VIM_BUNDLE_DIR = "vim/bundle"
+OHMYZSH_DIR = join(HOME_DIR, ".oh-my-zsh")
 
 # tuple[0] is HOME_DIR path
 # tuple[1] is DOTFILE_DIR path
@@ -81,7 +83,8 @@ def install_dotfiles():
     """
     print "Installing Oh-My-ZSH..."
     # Setup oh-my-zsh
-    call(["curl", "-L", "http://install.ohmyz.sh", "|", "sh"])
+    call(["git", "clone", "http://github.com/robbyrussell/oh-my-zsh.git",
+          "--template", OHMYZSH_DIR])
     print "Please remember to 'chsh -s /bin/zsh' and 'source ~/.zshrc'"
 
     print "Installing Pathogen..."
@@ -100,7 +103,9 @@ def install_dotfiles():
     # Clone vim plugins
     vim_bundle = join(DOTFILE_DIR, VIM_BUNDLE_DIR)
     for repo_url in VIM_PLUGIN_REPOS:
-        call(["git", "clone", repo_url, "--template", vim_bundle])
+        repo_name = search('.*/(.*)\.git', repo_url).group(1)
+        repo_path = join(vim_bundle, repo_name)
+        call(["git", "clone", repo_url, repo_path])
 
     print "Installation Complete"
 
