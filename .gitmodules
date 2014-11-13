@@ -1,6 +1,0 @@
-[submodule ".oh-my-zsh"]
-	path = .oh-my-zsh
-	url = ./.oh-my-zsh/.git
-[submodule "tmux-powerline"]
-	path = tmux-powerline
-	url = ./tmux-powerline/.git
