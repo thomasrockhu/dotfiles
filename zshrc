@@ -58,6 +58,7 @@ PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" 
 export EDITOR=vim VISUAL=vim
 
 alias :q='echo "Silly, this is not vim"'
+alias :wq!='echo "Silly, this is not vim"'
 alias :wq='echo "Silly, this is not vim"'
 alias :w='echo "Silly, this is not vim"'
 alias gs="git status"
@@ -77,3 +78,20 @@ export EDITOR=vim
 export VISUAL=vim
 
 [ -f ./.fzf.zsh ] && source ./.fzf.zsh
+
+# SSH agent stuff
+SSHAGENT=/usr/bin/ssh-agent
+SSHAGENTARGS="-s"
+if [ -z "$SSH_AUTH_SOCK" -a -x "$SSHAGENT" ]; then
+    eval `$SSHAGENT $SSHAGENTARGS`
+trap "kill $SSH_AGENT_PID" 0
+fi
+
+# custom stuff
+alias greps='grep -nIEr --color=ALWAYS -C5'
+alias testhdproweb='REAL_ENDPOINTS=True python manage.py test --settings=hdproweb.settings.test -v 2 -s'
+alias testhdapi='REAL_ENDPOINTS=True python -m unittest discover external-libs/hdapi/tests/ -v 2 -s'
+
+alias mocktesthdproweb='REAL_ENDPOINTS=True python manage.py test --settings=hdproweb.settings.test_mock -v 2 -s'
+
+source /usr/share/virtualenvwrapper/virtualenvwrapper.sh

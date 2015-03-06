@@ -3,7 +3,7 @@ execute pathogen#infect()
 
 " Some standard settings...
 set nocompatible
-syntax on
+syntax enable
 filetype on
 filetype indent on
 filetype plugin on
@@ -89,3 +89,5 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " ctags
 set tags+=~/src/beautifulmind/tags
+
+"autocmd setf htmldjango

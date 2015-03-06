@@ -17,19 +17,10 @@ unbind-key H
 unbind-key L
 unbind-key J
 unbind-key K
-bind-key -r H resize-pane -L 5
-bind-key -r L resize-pane -R 5
-bind-key -r J resize-pane -D 5
-bind-key -r K resize-pane -U 5
-
-unbind-key h
-unbind-key l
-unbind-key j
-unbind-key k
-bind-key h select-pane -L
-bind-key l select-pane -R
-bind-key j select-pane -D
-bind-key k select-pane -U
+bind-key -r H resize-pane -L 100
+bind-key -r L resize-pane -R 100
+bind-key -r J resize-pane -D 20
+bind-key -r K resize-pane -U 20
 
 # Don't timeout on escape time
 set-option -sg escape-time 0
