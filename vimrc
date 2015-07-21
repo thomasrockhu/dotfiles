@@ -91,3 +91,6 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 set tags+=~/src/beautifulmind/tags
 
 "autocmd setf htmldjango
+
+" Toggle paste
+set pastetoggle=<F2>
