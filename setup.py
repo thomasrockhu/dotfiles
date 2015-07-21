@@ -22,6 +22,7 @@ OHMYZSH_DIR = join(HOME_DIR, ".oh-my-zsh")
 # tuple[1] is DOTFILE_DIR path
 PATHS = {
     'vimrc': ('.vimrc', 'vimrc'),
+    'vim': ('.vim', 'vim'),
     'zshrc': ('.zshrc', 'zshrc'),
     'tmux_conf': ('.tmux.conf', 'tmux_conf'),
     'tmux_date': ('.tmux.date.conf', 'tmux_date'),

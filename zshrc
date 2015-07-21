@@ -71,7 +71,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias ag="ack-grep"
-alias tmux="tmux -2 -u"
+alias tmux="tmux"
 alias vi="vim"
 
 export EDITOR=vim
@@ -89,9 +89,6 @@ fi
 
 # custom stuff
 alias greps='grep -nIEr --color=ALWAYS -C5'
-alias testhdproweb='REAL_ENDPOINTS=True python manage.py test --settings=hdproweb.settings.test -v 2 -s'
-alias testhdapi='REAL_ENDPOINTS=True python -m unittest discover external-libs/hdapi/tests/ -v 2 -s'
 
-alias mocktesthdproweb='REAL_ENDPOINTS=True python manage.py test --settings=hdproweb.settings.test_mock -v 2 -s'
-
-source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+source /usr/local/bin/virtualenvwrapper.sh
+export TERM='xterm-256color'
