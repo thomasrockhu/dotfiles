@@ -59,16 +59,16 @@ colorscheme solarized
 map <C-n> :NERDTreeToggle<CR>
 
 " remember position
-autocmd BufWinLeave * mkview
-autocmd BufWinEnter * silent loadview
+autocmd BufWinLeave ?* mkview
+autocmd BufWinEnter ?* silent loadview
 
 "Trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhiteSpace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter ?* match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
+autocmd BufWinLeave ?* call clearmatches()
 
 function! TrimWhiteSpace()
         %s/\s\+$//e
